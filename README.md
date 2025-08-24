@@ -1,6 +1,5 @@
 # 🚗 Car Damage Detection System
 
-An AI-powered car damage detection system using YOLOv8 for automated vehicle damage assessment with comprehensive cost estimation and professional reporting.
 
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-green.svg)
