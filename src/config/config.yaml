@@ -1,0 +1,132 @@
+# Configuration file for Medical Image Analysis & Car Damage Detection System
+
+# Project Configuration
+project:
+  name: "Medical Image Analysis & Car Damage Detection System"
+  version: "1.0.0"
+  description: "Capstone project combining medical imaging and vehicle damage detection"
+
+# Data Configuration
+data:
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
+  annotations_path: "data/annotations"
+
+  # Medical Imaging
+  medical:
+    formats: ["nrrd", "dicom", "nii"]
+    categories:
+      - "control"
+      - "gastrointestinal"
+      - "insulin"
+      - "pre_procedure"
+      - "post_procedure"
+      - "preparation"
+      - "web_scraped"
+
+  # Car Damage
+  car_damage:
+    formats: ["jpg", "jpeg", "png"]
+    classes:
+      - "dent"
+      - "scratch"
+      - "broken_glass"
+      - "tire_damage"
+      - "body_damage"
+      - "light_damage"
+
+# Model Configuration
+models:
+  yolov4:
+    config_path: "models/yolov4/yolov4-custom.cfg"
+    weights_path: "models/weights/yolov4-custom.weights"
+    data_path: "models/yolov4/obj.data"
+    names_path: "models/yolov4/obj.names"
+    input_size: 416
+    confidence_threshold: 0.5
+    nms_threshold: 0.4
+
+  unet:
+    input_size: [256, 256, 3]
+    num_classes: 2
+    learning_rate: 0.001
+    batch_size: 16
+    epochs: 100
+    model_path: "models/unet/unet_model.h5"
+
+# Training Configuration
+training:
+  yolov4:
+    batch_size: 64
+    subdivisions: 16
+    width: 416
+    height: 416
+    channels: 3
+    momentum: 0.9
+    decay: 0.0005
+    learning_rate: 0.001
+    max_batches: 20000
+    steps: "16000,18000"
+
+  unet:
+    validation_split: 0.2
+    test_split: 0.1
+    early_stopping_patience: 10
+    reduce_lr_patience: 5
+    reduce_lr_factor: 0.5
+
+# Evaluation Configuration
+evaluation:
+  metrics:
+    yolov4:
+      - "mAP"
+      - "precision"
+      - "recall"
+      - "f1_score"
+    unet:
+      - "dice_coefficient"
+      - "iou"
+      - "accuracy"
+
+  thresholds:
+    iou_threshold: 0.5
+    confidence_threshold: 0.5
+
+# Deployment Configuration
+deployment:
+  streamlit:
+    port: 8501
+    host: "0.0.0.0"
+    theme: "light"
+
+  docker:
+    image_name: "medical-car-damage-detection"
+    container_name: "cv-capstone-app"
+    ports:
+      - "8501:8501"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: "logs/app.log"
+
+# API Configuration (if needed)
+api:
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  workers: 4
+
+# Database Configuration (if needed)
+database:
+  type: "sqlite"
+  path: "data/database.db"
+
+# Security Configuration
+security:
+  allowed_origins: ["*"]
+  max_file_size: 100  # MB
+  allowed_extensions:
+    images: ["jpg", "jpeg", "png", "nrrd", "dicom", "nii"]
+    documents: ["pdf", "doc", "docx"]

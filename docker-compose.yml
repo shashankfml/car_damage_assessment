@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  medical-car-damage-detection:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a data preprocessing service
+  data-preprocessor:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./notebooks:/app/notebooks
+    environment:
+      - PYTHONPATH=/app
+    command: python -c "print('Data preprocessing service ready')"
+    profiles:
+      - preprocessing
+
+  # Optional: Add model training service
+  model-trainer:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./notebooks:/app/notebooks
+    environment:
+      - PYTHONPATH=/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python -c "print('Model training service ready')"
+    profiles:
+      - training
