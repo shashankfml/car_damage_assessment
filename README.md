@@ -26,7 +26,7 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/car-damage-detection.git
+   git clone https://github.com/IITM-ML-Collective/car_damage_assessment.git
    cd car-damage-detection
    ```
 
@@ -71,7 +71,7 @@ python test_improved_system.py
 ## 📁 Project Structure
 
 ```
-car-damage-detection/
+car_damage_assessment/
 ├── fixed_app.py              # Main Streamlit application
 ├── train_improved_model.py   # Model training script
 ├── test_improved_system.py   # System testing utilities
@@ -99,7 +99,7 @@ Repair costs are calculated based on:
 ## 🔍 Technical Details
 
 ### Model Architecture
-- **Base Model**: YOLOv8s
+- **Base Model**: YOLOv8n
 - **Input Size**: 640x640 pixels
 - **Confidence Threshold**: 0.1 (adjustable)
 - **IoU Threshold**: 0.4
@@ -159,6 +159,4 @@ For issues, questions, or contributions:
 - [Streamlit](https://streamlit.io/) for the web framework
 - The computer vision community for datasets and inspiration
 
----
 
-**⭐ Star this repository if you find it helpful!**
