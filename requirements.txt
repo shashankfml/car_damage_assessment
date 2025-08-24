@@ -49,8 +49,7 @@ pathlib2>=2.3.0
 pydicom>=2.3.0
 nibabel>=4.0.0  # For NRRD files
 
-# Logging
-logging>=0.5.1.2
+# Logging is built into Python standard library
 
 # Optional: For Docker
 gunicorn>=20.1.0
