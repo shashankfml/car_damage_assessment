@@ -1,4 +1,4 @@
-# 🚗 Car Damage Detection System
+# Car Damage Detection System
 
 
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
@@ -6,7 +6,7 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## 🎯 Features
+## Features
 
 - **Advanced Damage Detection**: YOLOv8-based model with improved accuracy
 - **Comprehensive Assessment**: Severity classification (minor/moderate/severe)
@@ -15,7 +15,7 @@
 - **Export Functionality**: JSON and CSV report generation
 - **Real-time Analysis**: Fast inference with visual feedback
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.8+
@@ -40,7 +40,7 @@
    streamlit run fixed_app.py
    ```
 
-## 📊 Model Performance
+## Model Performance
 
 | Metric | Value |
 |--------|-------|
@@ -49,7 +49,7 @@
 | Supported Classes | 4 (scratch, dent, glass-shatter, smash) |
 | Inference Speed | <1 second |
 
-## 🔧 Usage
+## Usage
 
 ### Web Application
 1. Start the app: `streamlit run fixed_app.py`
@@ -68,7 +68,7 @@ python train_improved_model.py
 python test_improved_system.py
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 car_damage_assessment/
@@ -80,7 +80,7 @@ car_damage_assessment/
 └── .gitignore               # Git ignore rules
 ```
 
-## 🎯 Damage Classes
+## Damage Classes
 
 The system detects four types of vehicle damage:
 
@@ -89,14 +89,14 @@ The system detects four types of vehicle damage:
 3. **Glass-shatter** - Window/windshield damage
 4. **Smash** - Major structural damage
 
-## 💰 Cost Estimation
+## Cost Estimation
 
 Repair costs are calculated based on:
 - **Damage type** (scratch, dent, glass-shatter, smash)
 - **Severity level** (minor, moderate, severe)
 - **Regional factors** (urban, suburban, rural)
 
-## 🔍 Technical Details
+## Technical Details
 
 ### Model Architecture
 - **Base Model**: YOLOv8n
@@ -119,7 +119,7 @@ This system addresses common issues in car damage detection:
 - **User-Friendly**: Automatic model loading and clear status indicators
 - **Professional Output**: Comprehensive reports with actionable insights
 
-## 🛠️ Development
+## Development
 
 ### Adding New Damage Types
 1. Update class names in `train_improved_model.py`
@@ -135,25 +135,13 @@ damage_costs = {
 }
 ```
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
-## 📞 Support
-
-For issues, questions, or contributions:
-- Create an issue on GitHub
-- Check the troubleshooting section in the documentation
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [YOLOv8 by Ultralytics](https://github.com/ultralytics/ultralytics)
 - [Streamlit](https://streamlit.io/) for the web framework
